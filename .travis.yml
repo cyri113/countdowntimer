@@ -34,6 +34,9 @@ before_script:
   - cp config/database.yml.travis config/database.yml
   - bundle exec rails db:create
   - bundle exec rails db:migrate
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
 script:
   - bundle exec rspec
   - yarn test
