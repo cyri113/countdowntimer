@@ -7,14 +7,14 @@ rvm:
 services:
   - postgresql
 addons:
+  chrome: stable
   apt:
-    - google-chrome-stable
-    - chromium-chromedriver
+    update: true
+    packages:
+      - chromium-chromedriver
 cache:
-  bundler: true
-  yarn: true
-  directories:
-    - node_modules
+  - bundler
+  - yarn
 before_install:
   - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter

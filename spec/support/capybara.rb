@@ -1,6 +1,6 @@
 require "capybara/rspec"
 # require "webdrivers/geckodriver"
-require "webdrivers/chromedriver"
+# require "webdrivers/chromedriver"
 
 RSpec.configure do |config|
   config.before(:each, type: :system) do
