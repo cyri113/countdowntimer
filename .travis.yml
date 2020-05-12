@@ -7,11 +7,11 @@ rvm:
   - 2.5.1 # Will need to occassionally bump this
 services:
   - postgresql
-  - xvfb
+  # - xvfb
 addons:
   chrome: stable
   hosts:
-    - travis.test
+    # - travis.test
     - www.example.com
 cache:
   - bundler
