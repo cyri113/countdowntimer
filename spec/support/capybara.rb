@@ -2,6 +2,10 @@ require "capybara/rspec"
 # require "webdrivers/geckodriver"
 # require "webdrivers/chromedriver"
 
+Capybara.configure do |config|
+  config.always_include_port = true
+end
+
 RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by :rack_test
