@@ -1,5 +1,6 @@
 # required environment variables:
 # - CC_TEST_REPORTER_ID
+sudo: true
 language: ruby
 rvm:
   - 2.5.1 # Will need to occassionally bump this
