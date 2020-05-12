@@ -8,7 +8,7 @@ services:
   - postgresql
   # - xvfb
 addons:
-  chrome: stable
+  # chrome: stable
   apt:
     packages:
       - chromium-chromedriver
@@ -18,8 +18,10 @@ cache:
   directories:
     - node_modules
 before_install:
-  # - chromedriver -v
+  - chromedriver -v
+  # - /usr/bin/google-chrome -v
   # - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
+  - chmod +x chromedriver
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
