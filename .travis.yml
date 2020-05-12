@@ -1,15 +1,15 @@
 # required environment variables:
 # - CC_TEST_REPORTER_ID
-dist: xenial
+# dist: xenial
 language: ruby
-env:
-  global:
-    - MOZ_HEADLESS=1
+# env:
+#   global:
+#     - MOZ_HEADLESS=1
 rvm:
   - 2.5.1 # Will need to occassionally bump this
 services:
   - postgresql
-  - xvfb
+  # - xvfb
 addons:
   firefox: latest
   # chrome: stable
