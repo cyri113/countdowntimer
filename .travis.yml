@@ -27,6 +27,7 @@ install:
   - bundle install --without production --path=${BUNDLE_PATH:-vendor/bundle}
   - yarn install
 before_script:
+  - chromedriver -v
   - cp config/database.yml.travis config/database.yml
   - bundle exec rails db:create
   - bundle exec rails db:migrate

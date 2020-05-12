@@ -4,6 +4,8 @@ require "webdrivers/chromedriver"
 require "capybara"
 Capybara.register_driver :chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new(args: %w[no-sandbox headless disable-gpu])
+  # https://mentalized.net/journal/2019/09/02/fix-timeout-in-capybara-with-chrome/
+  options.add_argument("--enable-features=NetworkService,NetworkServiceInProcess")
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
