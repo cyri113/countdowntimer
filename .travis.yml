@@ -1,23 +1,12 @@
 # required environment variables:
 # - CC_TEST_REPORTER_ID
-os: linux 
-arch: arm64 
-dist: xenial
 language: ruby
 rvm:
   - 2.5.1 # Will need to occassionally bump this
 services:
   - postgresql
 addons:
-  # chrome: stable
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
-  #   update: true
-  #   packages:
-  #     - chromium-chromedriver
+  chrome: stable
 cache:
   - bundler
   - yarn
