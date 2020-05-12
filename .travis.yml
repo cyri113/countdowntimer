@@ -1,10 +1,12 @@
 # required environment variables:
 # - CC_TEST_REPORTER_ID
+dist: xenial
 language: ruby
 rvm:
   - 2.5.1 # Will need to occassionally bump this
 services:
   - postgresql
+  - xvfb
 addons:
   chrome: stable
   apt:
@@ -16,9 +18,7 @@ cache:
   directories:
     - node_modules
 before_install:
-  - chromedriver -v
-  - google-chrome-stable -v
-  - google-chrome-stable --headless --no-sandbox
+  # - chromedriver -v
   # - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
