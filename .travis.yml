@@ -5,6 +5,8 @@ rvm:
   - 2.5.1 # Will need to occassionally bump this
 services:
   - postgresql
+addons:
+  chrome: stable
 cache:
   bundler: true
   yarn: true

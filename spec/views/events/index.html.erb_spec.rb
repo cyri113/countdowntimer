@@ -12,4 +12,5 @@ RSpec.describe "events/index", type: :view do
     render
     assert_select "tr>td", text: /Event #/, count: 2
   end
+
 end
