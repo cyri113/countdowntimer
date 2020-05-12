@@ -7,11 +7,12 @@ rvm:
   - 2.5.1 # Will need to occassionally bump this
 services:
   - postgresql
-  # - xvfb
 addons:
   chrome: stable
+  apt:
+    packages:
+      - chromium-chromedriver
   hosts:
-    # - travis.test
     - www.example.com
 cache:
   - bundler
@@ -19,11 +20,11 @@ cache:
   - directories:
     - node_modules
 before_install:
-  - cat /etc/hosts
-  - CHROME_MAIN_VERSION=`google-chrome-stable --version | sed -E 's/(^Google Chrome |\.[0-9]+ )//g'`
-  - CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_MAIN_VERSION"`
-  - curl "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
-  - unzip chromedriver_linux64.zip -d ~/bin
+  # - cat /etc/hosts
+  # - CHROME_MAIN_VERSION=`google-chrome-stable --version | sed -E 's/(^Google Chrome |\.[0-9]+ )//g'`
+  # - CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_MAIN_VERSION"`
+  # - curl "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
+  # - unzip chromedriver_linux64.zip -d ~/bin
   - google-chrome-stable --version
   - chromedriver -v
   # - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
