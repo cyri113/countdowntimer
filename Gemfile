@@ -50,5 +50,5 @@ group :test do
   gem "capybara"
   gem "simplecov", "~>0.17.1", require: false
   gem "selenium-webdriver"
-  gem "webdrivers", "~>4.0"
+  # gem "webdrivers", "~>4.0"
 end
