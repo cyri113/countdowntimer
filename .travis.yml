@@ -7,6 +7,9 @@ services:
   - postgresql
 addons:
   chrome: stable
+  apt:
+    packages:
+      - chromium-chromedriver
 cache:
   bundler: true
   yarn: true
