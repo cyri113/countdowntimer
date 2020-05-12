@@ -6,6 +6,7 @@ rvm:
   - 2.5.1 # Will need to occassionally bump this
 services:
   - postgresql
+  - xvfb
 addons:
   chrome: stable
   hosts:
