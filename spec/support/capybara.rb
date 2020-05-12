@@ -14,6 +14,6 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :system, js: true) do
-    driven_by :selenium_chrome_headless, options: { args: ["verbose", "disable-gpu", "no-sandbox", "disable-dev-shm-usage"] }
+    driven_by :selenium_chrome_headless, options: { args: ["whitelisted-ips", "verbose", "disable-gpu", "no-sandbox", "disable-dev-shm-usage"] }
   end
 end
