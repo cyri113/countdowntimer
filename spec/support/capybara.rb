@@ -2,7 +2,7 @@ require "capybara/rspec"
 require "webdrivers/chromedriver"
 
 require "capybara"
-Capybara.register_driver :chrome do |app|
+Capybara.register_driver :headless_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new(args: %w[no-sandbox headless disable-gpu])
   # https://mentalized.net/journal/2019/09/02/fix-timeout-in-capybara-with-chrome/
   options.add_argument("--enable-features=NetworkService,NetworkServiceInProcess")
@@ -17,7 +17,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :system, js: true) do
-    driven_by :chrome
+    driven_by :headless_chrome
   end
 
   # config.before(:each, type: :system, js: true) do
