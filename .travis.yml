@@ -1,32 +1,26 @@
 # required environment variables:
 # - CC_TEST_REPORTER_ID
-dist: xenial
+# dist: xenial
 language: ruby
-# env:
-#   global:
-#     - MOZ_HEADLESS=1
 rvm:
   - 2.5.1 # Will need to occassionally bump this
 services:
   - postgresql
-  - xvfb
 addons:
-  firefox: latest
-  # chrome: stable
-#   apt:
-#     packages:
-#       - chromium-chromedriver
+  apt:
+    - google-chrome-stable
+    - chromium-chromedriver
 cache:
   bundler: true
   yarn: true
   directories:
     - node_modules
 before_install:
+  - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
   - nvm install v12.16.3 # Will need to occassionally bump this
-  # - google-chrome-stable --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost & # start your web application and listen on `localhost`
 install:
   - bundle install --without production --path=${BUNDLE_PATH:-vendor/bundle}
   - yarn install
@@ -34,9 +28,6 @@ before_script:
   - cp config/database.yml.travis config/database.yml
   - bundle exec rails db:create
   - bundle exec rails db:migrate
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
 script:
   - bundle exec rspec
   - yarn test
