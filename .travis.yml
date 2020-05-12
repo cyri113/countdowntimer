@@ -16,6 +16,7 @@ cache:
   - bundler
   - yarn
 before_install:
+  - export DISPLAY=:99.0
   - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
