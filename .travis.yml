@@ -7,6 +7,8 @@ services:
   - postgresql
 addons:
   chrome: stable
+  hosts:
+    - travis.test
 cache:
   - bundler
   - yarn
