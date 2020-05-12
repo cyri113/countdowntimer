@@ -1,6 +1,7 @@
 # required environment variables:
 # - CC_TEST_REPORTER_ID
-sudo: true
+dist: xenial
+os: linux
 language: ruby
 rvm:
   - 2.5.1 # Will need to occassionally bump this
