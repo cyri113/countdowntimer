@@ -12,9 +12,12 @@ addons:
   chrome: stable
   hosts:
     - travis.test
+    - www.example.com
 cache:
   - bundler
   - yarn
+  - directories:
+    - node_modules
 before_install:
   - cat /etc/hosts
   - CHROME_MAIN_VERSION=`google-chrome-stable --version | sed -E 's/(^Google Chrome |\.[0-9]+ )//g'`
